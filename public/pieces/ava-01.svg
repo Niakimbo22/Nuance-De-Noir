@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-label="Nuances de Noir — AVA.01">
+  <defs>
+    <linearGradient id="g" gradientTransform="rotate(115 0.5 0.5)">
+      <stop offset="0%" stop-color="#141414"/>
+      <stop offset="55%" stop-color="#080808"/>
+      <stop offset="100%" stop-color="#040404"/>
+    </linearGradient>
+    <radialGradient id="v" cx="50%" cy="42%" r="75%">
+      <stop offset="0%" stop-color="#2a2a2a" stop-opacity="0.5"/>
+      <stop offset="60%" stop-color="#0a0a0a" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="n">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+  <rect width="900" height="1200" fill="url(#g)"/>
+  <rect width="900" height="1200" fill="url(#v)"/>
+  <rect width="900" height="1200" filter="url(#n)" opacity="0.05"/>
+  <text x="50%" y="50%" fill="#F0EDE8" fill-opacity="0.16" font-family="Arial, sans-serif" font-size="34" letter-spacing="14" text-anchor="middle" dominant-baseline="middle" font-weight="700">NUANCES DE NOIR</text>
+  <text x="50%" y="1144" fill="#7A7A7A" fill-opacity="0.6" font-family="Arial, sans-serif" font-size="20" letter-spacing="10" text-anchor="middle">AVA.01</text>
+</svg>
