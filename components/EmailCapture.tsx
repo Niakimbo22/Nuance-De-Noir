@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/components/providers/LanguageProvider";
+import { Reveal } from "@/components/Reveal";
 import { newsletter } from "@/lib/content";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -50,12 +51,16 @@ export function EmailCapture() {
       aria-label={newsletter.title[lang]}
       className="relative flex min-h-screen-d flex-col items-center justify-center px-6 py-32 text-center sm:px-10"
     >
-      <h2 className="font-display text-[clamp(2.2rem,8vw,6.5rem)] uppercase leading-[0.95] tracking-[0.01em] text-creme">
-        {newsletter.title[lang]}
-      </h2>
-      <p className="mt-6 max-w-md text-sm leading-relaxed text-fumee">
-        {newsletter.subtitle[lang]}
-      </p>
+      <Reveal>
+        <h2 className="font-display text-[clamp(2.2rem,8vw,6.5rem)] uppercase leading-[0.95] tracking-[0.01em] text-creme">
+          {newsletter.title[lang]}
+        </h2>
+      </Reveal>
+      <Reveal delay={0.12}>
+        <p className="mt-6 max-w-md text-sm leading-relaxed text-fumee">
+          {newsletter.subtitle[lang]}
+        </p>
+      </Reveal>
 
       <div className="mt-14 h-24 w-full max-w-lg">
         <AnimatePresence mode="wait">

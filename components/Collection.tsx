@@ -4,6 +4,7 @@ import { useCallback, useState } from "react";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { PieceCard } from "@/components/PieceCard";
 import { ProductOverlay } from "@/components/ProductOverlay";
+import { Reveal } from "@/components/Reveal";
 import { pieces, ui } from "@/lib/content";
 import type { Piece } from "@/lib/types";
 
@@ -46,12 +47,16 @@ export function Collection() {
       className="relative mx-auto max-w-[1600px] px-6 py-28 sm:px-10 md:py-40 3xl:max-w-[1800px]"
     >
       <header className="mb-16 flex items-end justify-between md:mb-24">
-        <h2 className="font-display text-[clamp(2rem,7vw,5.5rem)] uppercase leading-none tracking-[0.01em] text-creme">
-          {t(ui.collection)}
-        </h2>
-        <span className="mb-2 text-[0.62rem] uppercase tracking-xwide text-fumee">
-          2026 — 06
-        </span>
+        <Reveal>
+          <h2 className="font-display text-[clamp(2rem,7vw,5.5rem)] uppercase leading-none tracking-[0.01em] text-creme">
+            {t(ui.collection)}
+          </h2>
+        </Reveal>
+        <Reveal delay={0.12}>
+          <span className="mb-2 block text-[0.62rem] uppercase tracking-xwide text-fumee">
+            2026 — 06
+          </span>
+        </Reveal>
       </header>
 
       {/* Colonnes CSS (mosaïque) : 1 → 2 → 3 selon le breakpoint. */}

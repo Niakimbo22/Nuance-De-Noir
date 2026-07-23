@@ -3,6 +3,7 @@ import { Anton, Inter } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
 import { FilmGrain } from "@/components/FilmGrain";
+import { ScrollProgress } from "@/components/ScrollProgress";
 
 // Display — sans-serif condensée, réservée aux titres uppercase.
 const display = Anton({
@@ -81,6 +82,7 @@ export default function RootLayout({
     <html lang="fr" className={`${display.variable} ${body.variable}`}>
       <body className="bg-noir font-body text-creme antialiased">
         <LanguageProvider>
+          <ScrollProgress />
           {children}
           <FilmGrain />
         </LanguageProvider>
