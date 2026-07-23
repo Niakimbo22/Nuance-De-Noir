@@ -43,6 +43,7 @@ export function PieceCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
       transition={{ duration: 0.9, ease: EASE, delay: (index % 3) * 0.08 }}
+      whileTap={prefersReduced ? undefined : { scale: 0.98 }}
       className={`group relative ${className}`}
     >
       <button

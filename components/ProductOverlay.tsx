@@ -107,8 +107,23 @@ export function ProductOverlay({
               </button>
             </div>
 
-            {/* Visuel — grand, à gauche (empilé au-dessus sur mobile). */}
-            <div className="relative aspect-[3/4] w-full shrink-0 bg-noir md:aspect-auto md:h-full md:w-1/2 lg:w-[55%]">
+            {/* Visuel — grand, à gauche (empilé au-dessus sur mobile).
+                Balayable horizontalement pour naviguer entre les pièces. */}
+            <motion.div
+              className="relative aspect-[3/4] w-full shrink-0 touch-pan-y bg-noir md:aspect-auto md:h-full md:w-1/2 lg:w-[55%]"
+              drag={prefersReduced ? false : "x"}
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.18}
+              dragDirectionLock
+              onDragEnd={(_, info) => {
+                // Seuil : distance ou vélocité suffisante pour changer de pièce.
+                if (info.offset.x < -80 || info.velocity.x < -400) {
+                  onNavigate(activeIndex + 1);
+                } else if (info.offset.x > 80 || info.velocity.x > 400) {
+                  onNavigate(activeIndex - 1);
+                }
+              }}
+            >
               <PieceImage
                 key={piece.id}
                 piece={piece}
@@ -116,7 +131,11 @@ export function ProductOverlay({
                 sizes="(min-width: 768px) 55vw, 100vw"
                 priority
               />
-            </div>
+              {/* Indice de balayage, visible sur tactile. */}
+              <span className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 text-[0.55rem] uppercase tracking-xwide text-creme/40 md:hidden">
+                ← balayer →
+              </span>
+            </motion.div>
 
             {/* Détails — à droite. */}
             <div className="flex w-full flex-col justify-center px-6 py-10 sm:px-10 md:w-1/2 md:overflow-y-auto md:py-20 lg:w-[45%] lg:px-16">

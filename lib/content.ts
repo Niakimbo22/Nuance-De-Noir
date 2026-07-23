@@ -57,6 +57,28 @@ export const manifesto: LocalizedLines = {
   ],
 } as const;
 
+/** Section — Nuancier interactif. Les teintes vont du plus dense au plus fumé. */
+export const nuancier = {
+  eyebrow: { fr: "Nuancier", en: "Shades" } satisfies Localized,
+  title: { fr: "Explorez la nuance", en: "Explore the shade" } satisfies Localized,
+  hint: { fr: "Glissez pour parcourir", en: "Drag to explore" } satisfies Localized,
+} as const;
+
+/**
+ * Les huit nuances de noir de la marque. Les noms sont un vocabulaire de
+ * marque (conservés à l'identique) ; seule la note est localisée.
+ */
+export const nuances = [
+  { name: "Vantablack", hex: "#050506", note: { fr: "L'absolu. Un noir qui n'en renvoie rien.", en: "The absolute. A black that gives nothing back." } },
+  { name: "Encre", hex: "#0E0E12", note: { fr: "La plus dense après le vide. Elle absorbe la lumière.", en: "The densest after the void. It drinks the light." } },
+  { name: "Obsidienne", hex: "#15151C", note: { fr: "Un noir minéral, tranchant, presque bleu.", en: "A mineral black, sharp, almost blue." } },
+  { name: "Charbon", hex: "#1F1F22", note: { fr: "La braise éteinte. Chaud sous la surface.", en: "Spent embers. Warm beneath the surface." } },
+  { name: "Fumée", hex: "#2B2B2E", note: { fr: "Le noir qui commence à respirer.", en: "The black that starts to breathe." } },
+  { name: "Ardoise", hex: "#3A3A40", note: { fr: "Un gris de toit sous la pluie.", en: "A rooftop grey under the rain." } },
+  { name: "Smokey", hex: "#4A4A50", note: { fr: "La fumée qui se dissipe, à mi-chemin.", en: "Smoke thinning out, halfway gone." } },
+  { name: "Cendre", hex: "#5B5B61", note: { fr: "Ce qui reste quand le noir s'efface.", en: "What remains when black fades away." } },
+] as const;
+
 /** Section — Capture email. */
 export const newsletter = {
   title: { fr: "Rejoindre le drop", en: "Join the drop" } satisfies Localized,
