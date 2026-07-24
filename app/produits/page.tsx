@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { products } from "@/lib/products";
-import { ProductCard } from "@/components/ProductCard";
+import { ProductGrid } from "@/components/ProductGrid";
 
 export const metadata: Metadata = {
   title: "Produits",
@@ -20,12 +20,8 @@ export default function ProduitsPage() {
         </p>
       </header>
 
-      {/* Grille : 1 col mobile, 2 tablette, 3 desktop. Sans bordure ni ombre. */}
-      <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
-        {products.map((product) => (
-          <ProductCard key={product.slug} product={product} />
-        ))}
-      </div>
+      {/* Filtres + grille (1 col mobile, 2 tablette, 3 desktop). Sans bordure. */}
+      <ProductGrid products={products} />
     </main>
   );
 }
